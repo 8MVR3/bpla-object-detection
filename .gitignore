@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyd
+*.pyo
+*.so
+*.egg-info/
+*.egg
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Данные и модели (управляются через DVC)
+/data/
+/models/
+
+# IDE
+.vscode/
+.idea/
+
+# Системные
+.DS_Store
+Thumbs.db

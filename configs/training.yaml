@@ -1,0 +1,9 @@
+defaults:
+  - optimizers: adamw
+
+training:
+  epochs: 50
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0005
+  device: "cuda:0"
