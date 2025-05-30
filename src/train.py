@@ -1,81 +1,35 @@
-import hydra
-from omegaconf import DictConfig, OmegaConf
+import torch
 from ultralytics import YOLO
-from typing import Dict, Type
-import warnings
+import yaml
+import os
+print(f"Права на папку: {oct(os.stat('data/train').st_mode)[-3:]}")
+print(f"Содержимое папки: {os.listdir('data/train')}")
 
 
-def validate_config(cfg: DictConfig, required: Dict[str, Type]) -> None:
-    """Валидация структуры и типов конфигурации"""
-    for key, type_ in required.items():
-        if not OmegaConf.select(cfg, key):
-            raise ValueError(f"Missing required config key: {key}")
-        if not isinstance(OmegaConf.select(cfg, key), type_):
-            raise ValueError(
-                f"Invalid type for {key}. Expected {type_}, got {type(OmegaConf.select(cfg, key))}")
+def load_config():
+    config_path = os.path.join(os.path.dirname(__file__), '../config.yml')
+    with open(config_path, "r") as f:
+        return yaml.safe_load(f)
 
 
-@hydra.main(config_path="../configs", config_name="config", version_base="1.3")
-def train(cfg: DictConfig) -> None:
-    """
-    Основная функция обучения с Hydra-конфигурацией
+def train():
+    cfg = load_config()
 
-    Args:
-        cfg: Конфигурация из Hydra (объединяет все yaml-файлы)
-    """
-    # Игнорируем предупреждения Hydra о рабочей директории
-    warnings.filterwarnings("ignore", category=UserWarning,
-                            message=".*working directory.*")
+    # Автоматический выбор устройства
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    cfg["training"]["device"] = device  # Обновляем конфиг
 
-    # Проверка обязательных параметров
-    required_config = {
-        'data.dataset.train_path': str,
-        'model.weights_path': str,
-        'training.epochs': int,
-        'model.input_size': list,
-        'training.batch_size': int
-    }
-    validate_config(cfg, required_config)
+    model = YOLO(cfg["model"]["weights_path"])
 
-    # Преобразуем конфиг в словарь (для логгирования)
-    cfg_dict = OmegaConf.to_container(cfg, resolve=True)
-    print("\nКонфигурация обучения:")
-    print(OmegaConf.to_yaml(cfg))
-
-    # Инициализация модели
-    model = YOLO(cfg.model.weights_path)
-
-    # Параметры обучения
     train_kwargs = {
-        "data": cfg.data.dataset.train_path,
-        "epochs": cfg.training.epochs,
-        "imgsz": cfg.model.input_size[0],
-        "batch": cfg.training.batch_size,
-        "device": cfg.training.device,
-        "optimizer": cfg.training.optimizer,
-        "lr0": cfg.training.learning_rate,
-        "weight_decay": cfg.training.weight_decay,
-        "fliplr": cfg.transforms.train[0].p,
-        "name": f"yoloe_{cfg.model.name}_train"
+        "data": cfg["data"]["train_path"],
+        "epochs": cfg["training"]["epochs"],
+        "imgsz": cfg["model"]["input_size"][0],  # Берем первый элемент списка
+        "batch": cfg["training"]["batch_size"],
+        "device": device,  # Используем выбранное устройство
     }
-
-    # Опциональные параметры (если указаны в конфиге)
-    if OmegaConf.select(cfg, "training.patience"):
-        train_kwargs["patience"] = cfg.training.patience
-    if OmegaConf.select(cfg, "transforms.hsv_h"):
-        train_kwargs["hsv_h"] = cfg.transforms.hsv_h
-    if OmegaConf.select(cfg, "transforms.hsv_s"):
-        train_kwargs["hsv_s"] = cfg.transforms.hsv_s
-
-    # Запуск обучения
-    print("\nНачало обучения с параметрами:")
-    for k, v in train_kwargs.items():
-        print(f"- {k}: {v}")
 
     results = model.train(**train_kwargs)
-
-    print("\nОбучение завершено. Модель сохранена в:")
-    print(f"runs/detect/{train_kwargs['name']}")
 
 
 if __name__ == "__main__":

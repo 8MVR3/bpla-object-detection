@@ -1,9 +1,7 @@
-defaults:
-  - optimizers: adamw
-
+# Этот файл должен быть в корне configs/, а не в подпапке
 training:
   epochs: 50
   batch_size: 16
+  device: "cuda:0"
   learning_rate: 0.001
   weight_decay: 0.0005
-  device: "cuda:0"

@@ -1,5 +1,0 @@
-defaults:
-  - data: data
-  - model: model
-  - training: training
-  - transforms: transforms

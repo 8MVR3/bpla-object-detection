@@ -1,1 +1,10 @@
-model: yoloe-11s-seg.pt
+defaults:
+  - _self_
+  - data: data
+  - model: model
+  - training: training
+  - transforms: transforms/transforms
+  - optimizers: optimizers/adamw
+
+model:
+  weights_path: "models/yoloe-11s-seg.pt"
