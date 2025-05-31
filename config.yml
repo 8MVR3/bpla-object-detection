@@ -3,8 +3,8 @@ model:
   input_size: [640, 640]
 
 data:
-  train_path: "D:/Learning/2 сем Мага/Поддержка и внедрение решений на основе машинного обучения/Новая папка/bpla-object-detection/data/train"
-  val_path: "D:/Learning/2 сем Мага/Поддержка и внедрение решений на основе машинного обучения/Новая папка/bpla-object-detection/data/val"
+  train_path: "D:\bpla-object-detection\data\train"
+  val_path: "D:\bpla-object-detection\data\val"
 
 training:
   epochs: 50
