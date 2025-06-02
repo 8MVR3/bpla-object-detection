@@ -24,3 +24,10 @@ env/
 # Системные
 .DS_Store
 Thumbs.db
+
+# Модели и временные файлы
+*.pt
+*.ts
+runs/segment/
+models/
+data/
