@@ -1,33 +1,64 @@
-# Python
-__pycache__/
-*.py[cod]
+# Временные файлы и кеши
+*.ts
+*.cache
+*.log
+*.tmp
+*.swp
 *.pyc
-*.pyd
-*.pyo
-*.so
-*.egg-info/
-*.egg
-.ipynb_checkpoints/
+__pycache__/
 .pytest_cache/
-.venv/
-venv/
-env/
+.ipynb_checkpoints/
 
-# Данные и модели (управляются через DVC)
-/data/
-/models/
+# Модели и веса
+*.pt
+*.pth
+*.bin
+*.h5
+*.weights
+models/
+runs/
+outputs/
+
+# Данные обучения
+data/
+!data/data.yaml  # Исключение - сохраняем конфиг данных
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
 
 # IDE
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Системные
-.DS_Store
-Thumbs.db
+# Python env
+venv/
+env/
+.venv/
+*.venv
+pip-selfcheck.json
 
-# Модели и временные файлы
-*.pt
-*.ts
-runs/segment/
-models/
-data/
+# Poetry
+poetry.lock
+
+# Локальные конфиги
+config.yml
+*.local
+
+# Тестовые данные
+tests/
+
+# SSH ключи (не должны быть в репозитории)
+ssh
+ssh.pub
+
+# Временные файлы
+0
+24.0
+2022.5.19
