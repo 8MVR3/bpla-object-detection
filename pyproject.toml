@@ -6,9 +6,20 @@ authors = ["Mikholap VV <mikholap.vv@phystech.edu>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8.1"  # Вариант 1: обновили минимальную версию Python
+torch = "^2.0.0"
+ultralytics = "^8.0.0"
+hydra-core = "^1.3.0"
+mlflow = "^2.0.0"
+dvc = "^3.0.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+black = "^23.0"
+# Вариант 2 (если оставляете python = "^3.8"):
+# flake8 = { version = "^6.0", python = ">=3.8.1" }
+flake8 = "^6.0"
+isort = "^5.12.0"
+pre-commit = "^3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
