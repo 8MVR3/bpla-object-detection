@@ -20,8 +20,13 @@ runs/
 outputs/
 
 # Данные обучения
-data/
-!data/data.yaml  # Исключение - сохраняем конфиг данных
+# Игнорировать все в data кроме указанных исключений
+data/*
+!data/data.yaml
+!data/*.dvc
+!data/train/
+!data/val/
+!data/test/
 
 # Системные файлы
 .DS_Store
