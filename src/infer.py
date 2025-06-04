@@ -1,19 +1,23 @@
 import numpy as np
-from ultralytics import YOLOE
+from ultralytics import YOLO
+import fire
+from pathlib import Path
 
 
-def predict(image_path, class_ids=None):
-    model = YOLOE("models/yoloe-11s-seg.pt")
+def predict(image_path, model_path="models/yoloe-11s-seg.pt", class_ids=None):
+    model = YOLO(model_path)
 
-    # Фильтрация по выбранным классам
+    # Фильтрация по классам
     if class_ids:
         model.set_classes([model.names[i] for i in class_ids])
 
-    # Визуальные промпты (пример)
-    visual_prompts = {
-        "bboxes": np.array([[100, 100, 200, 200]]),
-        "cls": np.array([0])  # person
-    }
+    results = model.predict(image_path)
 
-    results = model.predict(image_path, visual_prompts=visual_prompts)
-    results[0].save("output.jpg")
+    out_dir = Path("outputs/")
+    out_dir.mkdir(exist_ok=True)
+    results[0].save(out_dir / "output.jpg")
+    print(f"Prediction saved to {out_dir / 'output.jpg'}")
+
+
+if __name__ == "__main__":
+    fire.Fire(predict)

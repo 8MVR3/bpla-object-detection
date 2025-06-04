@@ -1,14 +1,14 @@
 model:
-  weights_path: "models/yoloe-11s-seg.pt"
+  weights_path: "models/yolov8s.pt"  # ✅ без -seg
   input_size: [640, 640]
 
 data:
-  train_path: "D:\bpla-object-detection\data\train"
-  val_path: "D:\bpla-object-detection\data\val"
+  data_path: "data/data.yaml"  # ✅ путь до YAML-файла с train/val
 
 training:
   epochs: 50
   batch_size: 16
-  device: "cpu"
+  device: "cuda:0"  # или "cpu"
   learning_rate: 0.001
   weight_decay: 0.0005
+  task: "detect"  # ✅ обязательно "detect"
