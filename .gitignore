@@ -20,13 +20,14 @@ runs/
 outputs/
 
 # Данные обучения
-# Игнорировать все в data кроме указанных исключений
+# Игнорировать все в data кроме:
 data/*
 !data/data.yaml
 !data/*.dvc
 !data/train/
+!data/train/**
 !data/val/
-!data/test/
+!data/val/**
 
 # Системные файлы
 .DS_Store
