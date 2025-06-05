@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/5fc0759b586441468600cea1964b3152/artifacts
+end_time: 1749145497766
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5fc0759b586441468600cea1964b3152
+run_name: beautiful-bat-704
+run_uuid: 5fc0759b586441468600cea1964b3152
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749145487252
+status: 4
+tags: []
+user_id: smiho

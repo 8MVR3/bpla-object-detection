@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/bb3819eef8fa4d1f9acc7867873c3bb4/artifacts
+end_time: 1749143513826
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bb3819eef8fa4d1f9acc7867873c3bb4
+run_name: entertaining-loon-93
+run_uuid: bb3819eef8fa4d1f9acc7867873c3bb4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749143504296
+status: 4
+tags: []
+user_id: smiho

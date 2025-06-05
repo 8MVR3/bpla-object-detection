@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/827154d43311487e8f7ca072590c887c/artifacts
+end_time: 1749143333278
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 827154d43311487e8f7ca072590c887c
+run_name: blushing-auk-978
+run_uuid: 827154d43311487e8f7ca072590c887c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749143322845
+status: 4
+tags: []
+user_id: smiho

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/140802965b4f4cf3862a287321c51db1/artifacts
+end_time: 1749132944812
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 140802965b4f4cf3862a287321c51db1
+run_name: clumsy-mare-803
+run_uuid: 140802965b4f4cf3862a287321c51db1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749132600156
+status: 4
+tags: []
+user_id: smiho

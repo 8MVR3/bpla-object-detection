@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/d5ad97f93349443e89b7da9cf1230595/artifacts
+end_time: 1749144332220
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d5ad97f93349443e89b7da9cf1230595
+run_name: rogue-koi-250
+run_uuid: d5ad97f93349443e89b7da9cf1230595
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144322664
+status: 4
+tags: []
+user_id: smiho

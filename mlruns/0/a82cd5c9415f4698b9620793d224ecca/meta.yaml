@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/a82cd5c9415f4698b9620793d224ecca/artifacts
+end_time: 1749144516957
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a82cd5c9415f4698b9620793d224ecca
+run_name: nebulous-mule-540
+run_uuid: a82cd5c9415f4698b9620793d224ecca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144506152
+status: 4
+tags: []
+user_id: smiho

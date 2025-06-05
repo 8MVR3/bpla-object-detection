@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/42bdff9a1b6542dc9ea70e4da6a4b361/artifacts
+end_time: 1749143862812
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 42bdff9a1b6542dc9ea70e4da6a4b361
+run_name: chill-carp-267
+run_uuid: 42bdff9a1b6542dc9ea70e4da6a4b361
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749143852208
+status: 4
+tags: []
+user_id: smiho

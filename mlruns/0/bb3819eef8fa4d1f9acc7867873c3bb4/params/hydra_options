@@ -1,0 +1,1 @@
+"--config-path=configs --config-name=train training.device=cpu model.weights_path=models/yolov8s.pt"

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/dd74fc4aee2b4d87b014423d38a8c467/artifacts
+end_time: 1749144266512
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dd74fc4aee2b4d87b014423d38a8c467
+run_name: honorable-steed-630
+run_uuid: dd74fc4aee2b4d87b014423d38a8c467
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144256061
+status: 4
+tags: []
+user_id: smiho

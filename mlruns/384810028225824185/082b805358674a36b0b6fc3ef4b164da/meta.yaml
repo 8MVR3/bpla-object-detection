@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/082b805358674a36b0b6fc3ef4b164da/artifacts
+end_time: 1749133114727
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 082b805358674a36b0b6fc3ef4b164da
+run_name: bittersweet-grub-916
+run_uuid: 082b805358674a36b0b6fc3ef4b164da
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749133113860
+status: 4
+tags: []
+user_id: smiho

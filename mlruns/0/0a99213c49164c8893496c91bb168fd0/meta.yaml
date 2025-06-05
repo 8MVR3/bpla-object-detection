@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/0a99213c49164c8893496c91bb168fd0/artifacts
+end_time: 1749143041442
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0a99213c49164c8893496c91bb168fd0
+run_name: unruly-stag-77
+run_uuid: 0a99213c49164c8893496c91bb168fd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749143031237
+status: 4
+tags: []
+user_id: smiho

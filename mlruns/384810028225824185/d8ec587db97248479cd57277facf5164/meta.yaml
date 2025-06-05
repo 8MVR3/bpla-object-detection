@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/d8ec587db97248479cd57277facf5164/artifacts
+end_time: 1749132484107
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: d8ec587db97248479cd57277facf5164
+run_name: burly-sow-975
+run_uuid: d8ec587db97248479cd57277facf5164
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749132254639
+status: 4
+tags: []
+user_id: smiho

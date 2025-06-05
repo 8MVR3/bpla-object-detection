@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/954ca25ef58040989ef7b59a33362834/artifacts
+end_time: 1749134374544
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 954ca25ef58040989ef7b59a33362834
+run_name: bold-bass-831
+run_uuid: 954ca25ef58040989ef7b59a33362834
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749134138937
+status: 3
+tags: []
+user_id: smiho

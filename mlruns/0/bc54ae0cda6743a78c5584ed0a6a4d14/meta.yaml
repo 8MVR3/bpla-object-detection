@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/bc54ae0cda6743a78c5584ed0a6a4d14/artifacts
+end_time: 1749145042667
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bc54ae0cda6743a78c5584ed0a6a4d14
+run_name: flawless-hare-816
+run_uuid: bc54ae0cda6743a78c5584ed0a6a4d14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749145032038
+status: 4
+tags: []
+user_id: smiho

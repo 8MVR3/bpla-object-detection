@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/e7da24f9186c41c79b9ef9c214f1db1b/artifacts
+end_time: 1749144066588
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e7da24f9186c41c79b9ef9c214f1db1b
+run_name: nosy-boar-453
+run_uuid: e7da24f9186c41c79b9ef9c214f1db1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144062607
+status: 4
+tags: []
+user_id: smiho

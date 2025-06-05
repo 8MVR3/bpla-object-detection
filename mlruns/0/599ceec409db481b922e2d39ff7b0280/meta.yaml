@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/599ceec409db481b922e2d39ff7b0280/artifacts
+end_time: 1749144055183
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 599ceec409db481b922e2d39ff7b0280
+run_name: thundering-crab-195
+run_uuid: 599ceec409db481b922e2d39ff7b0280
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144050740
+status: 4
+tags: []
+user_id: smiho

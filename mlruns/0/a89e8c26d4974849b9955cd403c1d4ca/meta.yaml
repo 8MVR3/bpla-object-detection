@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/a89e8c26d4974849b9955cd403c1d4ca/artifacts
+end_time: 1749144609936
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a89e8c26d4974849b9955cd403c1d4ca
+run_name: capable-shrimp-665
+run_uuid: a89e8c26d4974849b9955cd403c1d4ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144599452
+status: 4
+tags: []
+user_id: smiho

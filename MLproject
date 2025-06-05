@@ -1,0 +1,11 @@
+name: bpla-object-detection
+
+conda_env: conda.yaml
+
+entry_points:
+  train:
+    command: "python src/train.py {hydra_options}"
+    parameters:
+      hydra_options:
+        type: string
+        default="--config-path=../configs --config-name=train"

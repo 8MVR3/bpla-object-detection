@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/c6d1cbcac4d6432e97a5cfb58c9ad007/artifacts
+end_time: 1749137244523
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: c6d1cbcac4d6432e97a5cfb58c9ad007
+run_name: bald-fox-522
+run_uuid: c6d1cbcac4d6432e97a5cfb58c9ad007
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749137007649
+status: 3
+tags: []
+user_id: smiho

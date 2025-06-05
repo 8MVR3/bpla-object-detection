@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/ac1e40e7616343ccadf515efcebb7037/artifacts
+end_time: 1749145513449
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ac1e40e7616343ccadf515efcebb7037
+run_name: dazzling-sow-16
+run_uuid: ac1e40e7616343ccadf515efcebb7037
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749145502816
+status: 4
+tags: []
+user_id: smiho

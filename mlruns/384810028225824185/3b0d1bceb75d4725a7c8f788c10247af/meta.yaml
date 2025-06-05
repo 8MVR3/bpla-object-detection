@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/3b0d1bceb75d4725a7c8f788c10247af/artifacts
+end_time: 1749150317116
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 3b0d1bceb75d4725a7c8f788c10247af
+run_name: skittish-moth-804
+run_uuid: 3b0d1bceb75d4725a7c8f788c10247af
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749150236585
+status: 4
+tags: []
+user_id: smiho

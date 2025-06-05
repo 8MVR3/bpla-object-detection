@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/9595e6fcf14749138609e1796e846a85/artifacts
+end_time: 1749132153520
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 9595e6fcf14749138609e1796e846a85
+run_name: masked-bear-465
+run_uuid: 9595e6fcf14749138609e1796e846a85
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749132152510
+status: 4
+tags: []
+user_id: smiho

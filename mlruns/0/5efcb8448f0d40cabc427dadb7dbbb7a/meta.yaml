@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/5efcb8448f0d40cabc427dadb7dbbb7a/artifacts
+end_time: 1749144047260
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5efcb8448f0d40cabc427dadb7dbbb7a
+run_name: indecisive-snake-915
+run_uuid: 5efcb8448f0d40cabc427dadb7dbbb7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144036743
+status: 4
+tags: []
+user_id: smiho

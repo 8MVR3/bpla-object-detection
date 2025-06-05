@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/a16bb7a3561246518915a8efae00a650/artifacts
+end_time: 1749144544276
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a16bb7a3561246518915a8efae00a650
+run_name: beautiful-worm-768
+run_uuid: a16bb7a3561246518915a8efae00a650
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144533456
+status: 4
+tags: []
+user_id: smiho

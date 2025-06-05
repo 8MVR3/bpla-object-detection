@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/3011aef81be9449b821e7724b5ef78ae/artifacts
+end_time: 1749143878621
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3011aef81be9449b821e7724b5ef78ae
+run_name: clumsy-mink-580
+run_uuid: 3011aef81be9449b821e7724b5ef78ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749143868623
+status: 4
+tags: []
+user_id: smiho

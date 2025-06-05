@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/985a5f61029d4319be133a18efd6874a/artifacts
+end_time: 1749144246232
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 985a5f61029d4319be133a18efd6874a
+run_name: colorful-kit-81
+run_uuid: 985a5f61029d4319be133a18efd6874a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749144235764
+status: 4
+tags: []
+user_id: smiho

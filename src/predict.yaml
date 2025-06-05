@@ -1,0 +1,10 @@
+defaults:
+  - _self_
+
+model:
+  weights_path: "models/yolov8s.pt"
+
+predict:
+  source: "data/images/test.jpg"
+  imgsz: 640
+  device: "cpu"
