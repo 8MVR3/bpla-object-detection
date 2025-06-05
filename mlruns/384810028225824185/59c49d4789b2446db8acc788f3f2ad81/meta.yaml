@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/59c49d4789b2446db8acc788f3f2ad81/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 59c49d4789b2446db8acc788f3f2ad81
+run_name: gifted-bat-646
+run_uuid: 59c49d4789b2446db8acc788f3f2ad81
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749114008769
+status: 1
+tags: []
+user_id: smiho

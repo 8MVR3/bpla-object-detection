@@ -1,0 +1,6 @@
+artifact_location: file:///D:/bpla-object-detection/mlruns/384810028225824185
+creation_time: 1749113193815
+experiment_id: '384810028225824185'
+last_update_time: 1749113193815
+lifecycle_stage: active
+name: yolo_training_experiment

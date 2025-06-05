@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/c0c16b4b484941af93a501332a7f194e/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: c0c16b4b484941af93a501332a7f194e
+run_name: legendary-frog-257
+run_uuid: c0c16b4b484941af93a501332a7f194e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749113464051
+status: 1
+tags: []
+user_id: smiho

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/905fbfcc9492449a8a55594f504a0d7d/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 905fbfcc9492449a8a55594f504a0d7d
+run_name: inquisitive-kit-866
+run_uuid: 905fbfcc9492449a8a55594f504a0d7d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749073878313
+status: 1
+tags: []
+user_id: smiho

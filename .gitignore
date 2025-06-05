@@ -1,10 +1,11 @@
-# Временные файлы и кеши
+# Кэш и временные файлы
 *.ts
 *.cache
 *.log
 *.tmp
 *.swp
 *.pyc
+*.pyo
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
@@ -16,18 +17,18 @@ __pycache__/
 *.h5
 *.weights
 models/
+weights/
 runs/
 outputs/
 
-# Данные обучения
-# Игнорировать все в data кроме:
+# Datasets (храним только метаданные и DVC-файлы)
 data/*
 !data/data.yaml
 !data/*.dvc
 !data/train/
-!data/train/**
+!data/train/**/*.dvc
 !data/val/
-!data/val/**
+!data/val/**/*.dvc
 
 # Системные файлы
 .DS_Store
@@ -53,18 +54,16 @@ pip-selfcheck.json
 # Poetry
 poetry.lock
 
-# Локальные конфиги
+# Локальные/секретные конфиги
 config.yml
 *.local
+*.secret
 
-# Тестовые данные
+# Тесты и вспомогательные скрипты
 tests/
 
-# SSH ключи (не должны быть в репозитории)
+# SSH ключи (не пушим!)
+*.key
+*.pem
 ssh
 ssh.pub
-
-# Временные файлы
-0
-24.0
-2022.5.19

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/262fcf8dddfe416ea7551f1aad57b2b9/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 262fcf8dddfe416ea7551f1aad57b2b9
+run_name: worried-bass-292
+run_uuid: 262fcf8dddfe416ea7551f1aad57b2b9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749113644947
+status: 1
+tags: []
+user_id: smiho

@@ -10,3 +10,6 @@ training:
   batch_size: 16
   device: "cuda:0"
   workers: 2
+  imgsz: 640
+  project: runs/train
+  name: exp1

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/4ac948d07d94483792a41ee3941af6e0/artifacts
+end_time: 1749119024445
+entry_point_name: ''
+experiment_id: '384810028225824185'
+lifecycle_stage: active
+run_id: 4ac948d07d94483792a41ee3941af6e0
+run_name: amusing-cow-847
+run_uuid: 4ac948d07d94483792a41ee3941af6e0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749116394694
+status: 3
+tags: []
+user_id: smiho

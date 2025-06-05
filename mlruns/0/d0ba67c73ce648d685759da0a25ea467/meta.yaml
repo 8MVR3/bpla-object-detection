@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/d0ba67c73ce648d685759da0a25ea467/artifacts
+end_time: 1749111160298
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d0ba67c73ce648d685759da0a25ea467
+run_name: unruly-snail-315
+run_uuid: d0ba67c73ce648d685759da0a25ea467
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749111087995
+status: 4
+tags: []
+user_id: smiho

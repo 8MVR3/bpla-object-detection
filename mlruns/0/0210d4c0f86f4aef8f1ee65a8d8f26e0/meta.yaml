@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/bpla-object-detection/mlruns/0/0210d4c0f86f4aef8f1ee65a8d8f26e0/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0210d4c0f86f4aef8f1ee65a8d8f26e0
+run_name: skittish-goat-462
+run_uuid: 0210d4c0f86f4aef8f1ee65a8d8f26e0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749073463014
+status: 1
+tags: []
+user_id: smiho
