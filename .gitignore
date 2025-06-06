@@ -1,18 +1,22 @@
 # Кэш и временные файлы
-*.ts
-*.cache
-*.log
-*.tmp
-*.swp
 *.pyc
 *.pyo
+*.log
+*.tmp
+*.ts
+*.swp
+*.cache
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
+*.cover
+htmlcov/
 
 # Модели и веса
 *.pt
 *.pth
+*.onnx
+*.trt
 *.bin
 *.h5
 *.weights
@@ -20,15 +24,13 @@ models/
 weights/
 runs/
 outputs/
+plots/
 
-# Datasets (храним только метаданные и DVC-файлы)
+# Datasets (только DVC-файлы)
 data/*
 !data/data.yaml
 !data/*.dvc
-!data/train/
-!data/train/**/*.dvc
-!data/val/
-!data/val/**/*.dvc
+!data/**/*.dvc
 
 # Системные файлы
 .DS_Store
@@ -42,12 +44,11 @@ desktop.ini
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
 
 # Python env
+.venv/
 venv/
 env/
-.venv/
 *.venv
 pip-selfcheck.json
 
@@ -55,17 +56,16 @@ pip-selfcheck.json
 poetry.lock
 
 # Локальные/секретные конфиги
-config.yml
 *.local
 *.secret
+config.yml
 
-# Тесты и вспомогательные скрипты
-tests/
-
-# SSH ключи (не пушим!)
+# SSH/ключи доступа
 *.key
 *.pem
 ssh
 ssh.pub
-'cleveland-461918-t2-eedd7c643894.json' 
-cleveland-461918-t2-eedd7c643894.json 
+cleveland-461918-t2-eedd7c643894.json
+
+# Юнит-тесты (если не хочешь их пушить)
+# tests/
