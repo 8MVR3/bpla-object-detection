@@ -1,22 +1,23 @@
-import onnxruntime
 import numpy as np
-from torchvision import datasets, transforms
+import onnxruntime
 from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
 
 # Преобразования (такие же, как при обучении)
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.5,), (0.5,))
-])
+transform = transforms.Compose(
+    [transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))]
+)
 
 # Загружаем тестовый датасет
 test_dataset = datasets.CIFAR10(
-    root='./data', train=False, download=True, transform=transform)
+    root="./data", train=False, download=True, transform=transform
+)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
 # Загружаем ONNX модель
 session = onnxruntime.InferenceSession(
-    "onnx_models/model_7cf1ce2759dc46b096f93296ae0177f1.onnx")
+    "onnx_models/model_7cf1ce2759dc46b096f93296ae0177f1.onnx"
+)
 
 # Получаем имя входного тензора
 input_name = session.get_inputs()[0].name

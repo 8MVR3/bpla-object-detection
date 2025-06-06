@@ -1,5 +1,5 @@
-from ultralytics.data.dataset import YOLODataset
 import numpy as np
+from ultralytics.data.dataset import YOLODataset
 
 
 class CustomDataset(YOLODataset):
@@ -7,8 +7,8 @@ class CustomDataset(YOLODataset):
         super().__init__(*args, **kwargs)
 
     def load_label(self, label_path):
-        with open(label_path, 'r') as f:
-            lines = [line.strip().split(',') for line in f.readlines()]
+        with open(label_path, "r") as f:
+            lines = [line.strip().split(",") for line in f.readlines()]
 
         labels = []
         for line in lines:
@@ -16,8 +16,8 @@ class CustomDataset(YOLODataset):
             class_id = int(line[4])  # Предполагаем, что 5-й элемент - class_id
 
             # Конвертация в YOLO-формат
-            x_center = (x1 + w/2) / self.img_size[0]
-            y_center = (y1 + h/2) / self.img_size[1]
+            x_center = (x1 + w / 2) / self.img_size[0]
+            y_center = (y1 + h / 2) / self.img_size[1]
             width = w / self.img_size[0]
             height = h / self.img_size[1]
 

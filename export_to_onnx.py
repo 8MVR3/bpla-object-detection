@@ -1,15 +1,16 @@
-import torch
-import onnx
-import mlflow.pytorch
 import os
+
+import mlflow.pytorch
+import torch
 
 # Загрузка последней модели из MLflow
 logged_model_uri = "runs:/{}/model"
 
 # Получим ID последнего запуска (run ID)
 client = mlflow.tracking.MlflowClient()
-latest_run = client.search_runs(experiment_ids=["0"], order_by=[
-                                "start_time DESC"], max_results=1)[0]
+latest_run = client.search_runs(
+    experiment_ids=["0"], order_by=["start_time DESC"], max_results=1
+)[0]
 run_id = latest_run.info.run_id
 
 # Загрузка модели
@@ -31,7 +32,7 @@ torch.onnx.export(
     input_names=["input"],
     output_names=["output"],
     dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}},
-    opset_version=11
+    opset_version=11,
 )
 
 print(f"Модель успешно экспортирована в {onnx_path}")

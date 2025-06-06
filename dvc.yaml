@@ -1,18 +1,18 @@
 stages:
-  train:
-    cmd: python src/train.py
-    deps:
-      - src/train.py
-      - src/utils/utils.py
-      - configs/train.yaml
-      - data.yaml
-      - yolov8n.pt
-    params:
-      - training.epochs
-      - training.batch_size
-      - training.imgsz
-    outs:
-      - runs/train/exp
-    metrics:
-      - runs/train/exp/results.csv:
-          cache: false
+    train:
+        cmd: python src/train.py
+        deps:
+            - src/train.py
+            - src/utils/utils.py
+            - configs/train.yaml
+            - data.yaml
+            - yolov8n.pt
+        params:
+            - training.epochs
+            - training.batch_size
+            - training.imgsz
+        outs:
+            - runs/train/exp
+        metrics:
+            - runs/train/exp/results.csv:
+                  cache: false

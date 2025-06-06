@@ -1,9 +1,9 @@
-from ultralytics import YOLO
+# src/convert.py
 import fire
-from pathlib import Path
+from ultralytics import YOLO
 
 
-def export_to_onnx(model_path="models/yoloe-11s-seg.pt", output_path="models/yoloe-11s-seg.onnx"):
+def export_to_onnx(model_path="models/yolov8s.pt", output_path="models/yolov8s.onnx"):
     model = YOLO(model_path)
     model.export(format="onnx")
     print(f"Model exported to {output_path}")

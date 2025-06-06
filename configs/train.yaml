@@ -1,15 +1,15 @@
 model:
-  weights_path: "models/yolov8s.pt"
-  input_size: [640, 640]
+    weights_path: 'models/yolov8s.pt'
+    input_size: [640, 640]
 
 data:
-  data_path: "data/data.yaml"
+    data_path: 'data/data.yaml'
 
 training:
-  epochs: 50
-  batch_size: 16
-  device: "cuda:0"
-  workers: 2
-  imgsz: 640
-  project: runs/train
-  name: exp1
+    epochs: 5
+    batch_size: 16
+    device: 'cuda:0'
+    workers: 2
+    imgsz: 640
+    project: runs/train
+    name: exp1

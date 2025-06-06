@@ -1,4 +1,4 @@
 model:
-  name: "yoloe-11s-seg"
-  weights_path: "../models/yoloe-11s-seg.pt"
-  input_size: [640, 640]
+    name: 'yolov8s.pt'
+    weights_path: '..models/yolov8s.pt'
+    input_size: [640, 640]

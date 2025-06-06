@@ -1,5 +1,5 @@
 artifact_uri: file:///D:/bpla-object-detection/mlruns/384810028225824185/15132868854f4dce939818198e57ee3d/artifacts
-end_time: null
+end_time: 1749153639112
 entry_point_name: ''
 experiment_id: '384810028225824185'
 lifecycle_stage: active
@@ -10,6 +10,6 @@ source_name: ''
 source_type: 4
 source_version: ''
 start_time: 1749152563745
-status: 1
+status: 4
 tags: []
 user_id: smiho
