@@ -26,7 +26,8 @@ def run_inference(model_path, input_dir, output_dir="outputs", img_size=640):
     for image_path in Path(input_dir).glob("*.jpg"):
         image = cv2.imread(str(image_path))
         input_tensor = preprocess(image, img_size)
-        _ = ort_session.run(None, {"input": input_tensor})
+        input_name = ort_session.get_inputs()[0].name
+        _ = ort_session.run(None, {input_name: input_tensor})
 
         # TODO: здесь можно добавить постобработку результатов (например, рисовать боксы)
 
