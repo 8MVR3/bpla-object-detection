@@ -1,23 +1,23 @@
-import shutil
-from pathlib import Path
-
+import cv2
 import numpy as np
 
-from src.infer import predict
+from src.infer import run_inference
 
 
-def test_predict_runs(tmp_path):
-    # Dummy изображение (320x320 белый)
-    import cv2
+def test_run_inference_creates_outputs(tmp_path):
+    # Создаём dummy изображение
+    dummy_image = 255 * np.ones((640, 640, 3), dtype=np.uint8)
+    input_dir = tmp_path / "images"
+    input_dir.mkdir()
+    test_image_path = input_dir / "test.jpg"
+    cv2.imwrite(str(test_image_path), dummy_image)
 
-    image = 255 * np.ones((320, 320, 3), dtype=np.uint8)
-    image_path = tmp_path / "test.jpg"
-    cv2.imwrite(str(image_path), image)
+    output_dir = tmp_path / "outputs"
+    model_path = "exports/weights/best.onnx"
 
-    # Предсказание (в режиме smoke test)
-    try:
-        predict(str(image_path), model_path="models/yolov8s.pt")
-        output_file = Path("outputs/output.jpg")
-        assert output_file.exists()
-    finally:
-        shutil.rmtree("outputs", ignore_errors=True)
+    # Запускаем инференс
+    run_inference(str(model_path), str(input_dir), str(output_dir))
+
+    # Проверяем, что файл сохранён
+    saved = list(output_dir.glob("*.jpg"))
+    assert len(saved) == 1
