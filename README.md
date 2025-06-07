@@ -212,15 +212,23 @@ python scripts/build_engine.py  # Builds best.engine from best.onnx
 
 ---
 
-## Tests
+## 🧪 Tests
 
-Run all tests:
+Before running tests, make sure `pytest` is installed:
+
+```bash
+pip install pytest
+```
+
+Then run all tests with:
 
 ```bash
 pytest tests/
 ```
 
-Includes:
+This will execute all unit and integration tests in the `tests/` directory.
+
+Includes test modules:
 
 * `test_utils.py`
 * `test_export.py`
@@ -229,6 +237,9 @@ Includes:
 * `test_model.py`
 * `test_cli_infer.py`
 * `test_api.py`
+
+> ❗ Some tests may fail if dependent models, data, or services (e.g., FastAPI server) are not available.
+> Make sure to check logs and validate required setup if needed.
 
 ---
 
