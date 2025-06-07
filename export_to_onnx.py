@@ -1,30 +1,53 @@
 import os
+import sys
 
+import mlflow
 import mlflow.pytorch
 import torch
 
-# Загрузка последней модели из MLflow
-logged_model_uri = "runs:/{}/model"
+# Задаём URI шаблон для загрузки модели из MLflow
+logged_model_uri_template = "runs:/{}/model"
 
-# Получим ID последнего запуска (run ID)
+# Инициализация клиента MLflow
 client = mlflow.tracking.MlflowClient()
-latest_run = client.search_runs(
-    experiment_ids=["0"], order_by=["start_time DESC"], max_results=1
-)[0]
-run_id = latest_run.info.run_id
 
-# Загрузка модели
-model = mlflow.pytorch.load_model(logged_model_uri.format(run_id))
+# Получение последнего запуска из эксперимента с ID "0"
+latest_runs = client.search_runs(
+    experiment_ids=["0"],
+    order_by=["start_time DESC"],
+    max_results=1,
+)
+
+# Проверка наличия хотя бы одного запуска
+if not latest_runs:
+    print("❌ No MLflow runs found in experiment ID '0'.")
+    sys.exit(1)
+
+# Извлечение run_id
+run = latest_runs[0]
+run_id = run.info.run_id
+model_uri = logged_model_uri_template.format(run_id)
+
+# Проверка, что артефакт модели действительно существует
+artifact_path = os.path.join("mlruns", "0", run_id, "artifacts", "model")
+if not os.path.isdir(artifact_path):
+    print(f"❌ Model artifact not found at expected path: {artifact_path}")
+    print("➡️ Make sure your training script includes `mlflow.pytorch.log_model(model, 'model')`.")
+    sys.exit(1)
+
+# Загрузка модели из MLflow
+model = mlflow.pytorch.load_model(model_uri)
 model.eval()
 
-# Пример входного тензора
+# Пример входного тензора (можно заменить на реальные размеры)
 dummy_input = torch.randn(1, 3, 32, 32)
 
-# Путь для сохранения ONNX-модели
-onnx_path = os.path.join("onnx_models", f"model_{run_id}.onnx")
-os.makedirs("onnx_models", exist_ok=True)
+# Создание директории для сохранения ONNX-модели
+onnx_dir = "onnx_models"
+os.makedirs(onnx_dir, exist_ok=True)
+onnx_path = os.path.join(onnx_dir, f"model_{run_id}.onnx")
 
-# Экспорт модели в ONNX
+# Экспорт модели в формат ONNX
 torch.onnx.export(
     model,
     dummy_input,
@@ -35,4 +58,4 @@ torch.onnx.export(
     opset_version=11,
 )
 
-print(f"Модель успешно экспортирована в {onnx_path}")
+print(f"✅ Model successfully exported to {onnx_path}")

@@ -1,6 +1,8 @@
 import logging
 import os
 
+import mlflow
+import mlflow.pytorch
 from ultralytics import YOLO
 
 from src.utils.logger import setup_logging
@@ -33,6 +35,17 @@ def main():
 
     logger.info(f"Training results saved to: {exp_dir}")
     logger.info(f"Git commit ID: {get_git_commit_id()}")
+
+    # ✅ Логгируем модель в MLflow
+    with mlflow.start_run():
+        mlflow.log_params({
+            "epochs": 50,
+            "imgsz": 640,
+            "model": "yolov8s.pt"
+        })
+
+        # Важно: model.model — это torch.nn.Module
+        mlflow.pytorch.log_model(model.model, "model")
 
     # Построение графиков метрик
     csv_path = os.path.join(exp_dir, "results.csv")
