@@ -165,11 +165,24 @@ Then open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to upload an 
 
 ## 📦 Model Export
 
+### ✅ Install dependencies (if not already installed)
+
+```bash
+pip install mlflow
+```
+
+---
+
 ### ➡️ Export to ONNX
 
 ```bash
-python scripts/export_onnx.py --model models/yolov8s.pt --output exports/weights/best.onnx
+python scripts/export_to_onnx.py
 ```
+
+> ⚠️ This script loads the latest trained model from MLflow and exports it to the `onnx_models/` directory.
+> Make sure your training script logs the model to MLflow.
+
+---
 
 ### ⚡ Export to TensorRT
 
@@ -177,9 +190,11 @@ python scripts/export_onnx.py --model models/yolov8s.pt --output exports/weights
 python scripts/build_engine.py  # Builds best.engine from best.onnx
 ```
 
+> 💡 This assumes you have an ONNX model saved at `onnx_models/model_<RUN_ID>.onnx`.
+
 ---
 
-## 🤪 Tests
+## Tests
 
 Run all tests:
 
