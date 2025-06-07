@@ -19,7 +19,7 @@ packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 # Требуемая версия Python
-python = ">=3.10,<4.0"
+python = ">=3.10,<3.12"
 
 # Основные зависимости проекта
 torch = "^2.0.0"                         # Основной фреймворк для ML

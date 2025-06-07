@@ -8,6 +8,10 @@ This repository implements an end-to-end object detection pipeline for aerial im
 
 ## ⚙️ Environment Setup
 
+> ⚠️ **Python version requirement:**  
+> This project requires **Python 3.10 or 3.11**.  
+> Python 3.12+ is not supported due to known incompatibility with `flake8`.
+
 ### 📥 Clone the Repository
 
 ```bash
