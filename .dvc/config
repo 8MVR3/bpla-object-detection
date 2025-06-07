@@ -1,7 +1,0 @@
-[core]
-    remote = localremote
-['remote "myremote"']
-    url = gdrive://1KPNy9iGWudZXNfDNkDGhLXuwY7-v2mqp
-    gdrive_acknowledge_abuse = true
-['remote "localremote"']
-    url = D:\bpla-object-detection\dvc-storage
