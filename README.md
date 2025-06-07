@@ -127,9 +127,14 @@ training:
 
 ### 🚀 Run Training
 
-```bash
-python src/train.py
-```
+> ⚠️ **Important for Windows users:**
+> To avoid `ModuleNotFoundError: No module named 'src'`, set the Python path before training:
+>
+> ```bash
+> set PYTHONPATH=.
+> python src/train.py
+> ```
+
 
 Training logs, plots, and weights will be saved to `runs/train/exp1/`.
 
