@@ -15,20 +15,32 @@ git clone https://github.com/8MVR3/bpla-object-detection.git
 cd bpla-object-detection
 ```
 
-### 📦 Install Dependencies
+## 🚀 Install Dependencies
 
-Using Poetry:
+### Option 1: Using Poetry (recommended)
 
 ```bash
 poetry install
 poetry shell
 ```
 
-Or via `pip`:
+### Option 2: Using pip (manual setup)
 
-```bash
+#### Create and activate virtual environment
+
+python -m venv .venv
+
+##### For Windows:
+
+.venv\Scripts\activate
+
+##### For Linux/macOS:
+
+source .venv/bin/activate
+
+#### Then install dependencies
+
 pip install -r requirements.txt
-```
 
 ### ✅ Set up Git Hooks
 
