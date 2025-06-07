@@ -142,7 +142,19 @@ Training logs, plots, and weights will be saved to `runs/train/exp1/`.
 
 ## 🔍 Inference
 
+### 📦 Требуемые зависимости
+
+Если у вас ещё **не установлены** зависимости для инференса, выполните:
+
+```bash
+pip install onnxruntime fire
+```
+
+---
+
 ### 💻 ONNX Runtime Inference
+
+Выполните команду для запуска инференса на ONNX-модели:
 
 ```bash
 python src/infer.py \
@@ -151,17 +163,23 @@ python src/infer.py \
   --output_dir=outputs/
 ```
 
-### 🌐 Inference Server (FastAPI)
-
-Run:
-
-```bash
-poetry run python src/serve.py
-```
-
-Then open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to upload an image and get predictions via Swagger UI.
+Результаты будут сохранены в директорию `outputs/`.
 
 ---
+
+### 🌐 Inference Server (FastAPI)
+
+Запустите FastAPI-сервер:
+
+```bash
+python src/serve.py
+```
+
+После запуска откройте [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+и используйте Swagger UI для загрузки изображений и получения предсказаний.
+
+---
+
 
 ## 📦 Model Export
 
