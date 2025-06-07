@@ -254,12 +254,31 @@ pytest tests/
 
 ---
 
-
 ## 📊 Logging & Monitoring
 
-* Metrics (loss, mAP, precision, recall) are saved in `runs/train/...`
-* Plots saved to `plots/`
-* Git commit ID is captured for reproducibility
+* Training metrics (loss, mAP\@0.5, mAP\@0.5:0.95, precision, recall) are logged to `runs/train/<exp_name>/results.csv`.
+  Example: `runs/train/exp119/results.csv`
+* Model weights (`best.pt`, `last.pt`) are saved in `runs/train/<exp_name>/weights/`
+* Visual plots (e.g., loss curves) are **not automatically generated** in `plots/` — this folder is not used in the current setup.
+* You can visualize the CSV metrics manually using tools like Excel, Pandas, or Matplotlib (see below).
+
+Example for manual plotting:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("runs/train/exp119/results.csv")
+
+plt.plot(df["epoch"], df["metrics/mAP_0.5"], label="mAP@0.5")
+plt.plot(df["epoch"], df["metrics/mAP_0.5:0.95"], label="mAP@0.5:0.95")
+plt.xlabel("Epoch")
+plt.ylabel("Metric")
+plt.title("Validation mAP over Epochs")
+plt.legend()
+plt.grid(True)
+plt.show()
+```
 
 ---
 
