@@ -8,16 +8,16 @@ This repository implements an end-to-end object detection pipeline for aerial im
 
 ## ⚙️ Environment Setup
 
-> ⚠️ **Python version requirement:**  
-> This project requires **Python 3.10 or 3.11**.  
-> Python 3.12+ is not supported due to known incompatibility with `flake8`.
-
-### 📥 Clone the Repository
+### 📅 Clone the Repository
 
 ```bash
 git clone https://github.com/8MVR3/bpla-object-detection.git
 cd bpla-object-detection
 ```
+
+> ⚠️ **Python version requirement:**
+> This project requires **Python 3.10 or 3.11**.
+> Python 3.12+ is not supported due to known incompatibility with `flake8`.
 
 ## 🚀 Install Dependencies
 
@@ -38,29 +38,21 @@ python -m venv .venv
 
 ##### For Windows:
 
-```bash
+```
 .venv\Scripts\activate
 ```
 
 ##### For Linux/macOS:
 
-```bash
+```
 source .venv/bin/activate
 ```
 
-#### Install core dependencies
+#### Then install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
-
-#### (Optional) Install dev tools if using pre-commit hooks:
-
-```bash
-pip install black isort flake8 pre-commit
-```
-
-> Prettier requires Node.js. If not using Prettier, you can remove its hook from `.pre-commit-config.yaml`.
 
 ### ✅ Set up Git Hooks
 
@@ -71,7 +63,7 @@ pre-commit run --all-files
 
 ---
 
-## 📂 Dataset Management with DVC
+## 🗂️ Dataset Management with DVC
 
 We use [DVC](https://dvc.org/) to track training/validation/test datasets.
 
@@ -81,7 +73,25 @@ We use [DVC](https://dvc.org/) to track training/validation/test datasets.
 dvc pull
 ```
 
-This will download data from Google Drive via a service account (already configured).
+This will download data from Google Drive via a service account (see below).
+
+### 🔐 GDrive DVC Authentication
+
+To download data via `dvc pull`, you need a service account key.
+
+📅 **Download the JSON key** from this shared Google Drive folder:
+👉 [Download keys](https://drive.google.com/drive/folders/19BrlHrNiocZAojDM6Hs8gfoPZjVbvD_k?usp=sharing)
+
+Then place the file into the project root, and update `.dvc/config` if needed:
+
+```
+['remote "gdrive_storage"']
+    url = gdrive://1KPNy9iGWudZXNfDNkDGhLXuwY7-v2mqp
+    gdrive_use_service_account = true
+    gdrive_service_account_json_file_path = cleveland-461918-t2-<your-key>.json
+```
+
+Make sure this path is correct relative to your project directory.
 
 ---
 
@@ -142,7 +152,7 @@ Then open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to upload an 
 
 ## 📦 Model Export
 
-### ⬅️ Export to ONNX
+### ➡️ Export to ONNX
 
 ```bash
 python scripts/export_onnx.py --model models/yolov8s.pt --output exports/weights/best.onnx
@@ -156,7 +166,7 @@ python scripts/build_engine.py  # Builds best.engine from best.onnx
 
 ---
 
-## 🧪 Tests
+## 🤪 Tests
 
 Run all tests:
 
@@ -166,25 +176,25 @@ pytest tests/
 
 Includes:
 
--   `test_utils.py`
--   `test_export.py`
--   `test_infer.py`
--   `test_dataloader.py`
--   `test_model.py`
--   `test_cli_infer.py`
--   `test_api.py`
+* `test_utils.py`
+* `test_export.py`
+* `test_infer.py`
+* `test_dataloader.py`
+* `test_model.py`
+* `test_cli_infer.py`
+* `test_api.py`
 
 ---
 
 ## 📊 Logging & Monitoring
 
--   Metrics (loss, mAP, precision, recall) are saved in `runs/train/...`
--   Plots saved to `plots/`
--   Git commit ID is captured for reproducibility
+* Metrics (loss, mAP, precision, recall) are saved in `runs/train/...`
+* Plots saved to `plots/`
+* Git commit ID is captured for reproducibility
 
 ---
 
-## 📃 Project Structure
+## 🗃️ Project Structure
 
 ```
 bpla-object-detection/
@@ -210,12 +220,12 @@ bpla-object-detection/
 
 ## ✅ Checkpoints
 
--   ✅ Pre-commit hooks (black, isort, flake8, prettier)
--   ✅ Hydra configs for training and inference
--   ✅ Inference CLI and FastAPI server
--   ✅ DVC + GDrive integration
--   ✅ ONNX + TensorRT export
--   ✅ Full CI workflow via GitHub Actions
+* ✅ Pre-commit hooks (black, isort, flake8, prettier)
+* ✅ Hydra configs for training and inference
+* ✅ Inference CLI and FastAPI server
+* ✅ DVC + GDrive integration
+* ✅ ONNX + TensorRT export
+* ✅ Full CI workflow via GitHub Actions
 
 ---
 
