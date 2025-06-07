@@ -1,38 +1,54 @@
 [tool.poetry]
+# Название проекта
 name = "bpla-object-detection"
+
+# Версия проекта
 version = "0.1.0"
+
+# Краткое описание
 description = "Automatic prompting for UAV object detection with YOLOv8 and MLOps tools"
+
+# Автор проекта
 authors = ["Mikholap VV <mikholap.vv@phystech.edu>"]
+
+# Тип лицензии
 license = "MIT"
+
+# Путь к пакетам (используем src layout)
 packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
+# Требуемая версия Python
 python = ">=3.10,<4.0"
-torch = "^2.0.0"
-ultralytics = "^8.0.0"
-hydra-core = "^1.3.0"
-dvc = "^3.0.0"
-fire = "^0.7.0"
-pandas = "^2.0.0"
-matplotlib = "^3.8.0"
-onnxruntime = "^1.22.0"
-fastapi = "^0.115.12"
-uvicorn = "^0.34.3"
-python-multipart = "^0.0.20"
+
+# Основные зависимости проекта
+torch = "^2.0.0"                         # Основной фреймворк для ML
+ultralytics = "^8.0.0"                  # YOLOv8 (детекция объектов)
+hydra-core = "^1.3.0"                   # Управление конфигурациями
+dvc = "^3.0.0"                          # Управление данными и пайплайнами
+fire = "^0.7.0"                         # CLI для Python-функций
+pandas = "^2.0.0"                       # Обработка данных
+matplotlib = "^3.8.0"                   # Визуализация графиков
+onnxruntime = "^1.22.0"                 # Инференс ONNX-моделей
+fastapi = "^0.115.12"                   # Веб-сервер для сервинга модели
+uvicorn = "^0.34.3"                     # ASGI-сервер для запуска FastAPI
+python-multipart = "^0.0.20"           # Поддержка загрузки файлов через FastAPI
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.0"
-flake8 = "^6.0"
-isort = "^5.12.0"
-pre-commit = "^3.0"
-pytest = "^8.4.0"
-onnx = "^1.18.0"
-onnxruntime = "^1.22.0"
-dvc = {extras = ["gdrive"], version = "^3.60.0"}
-pydrive2 = "^1.21.3"
-cryptography = "41.0.7"
-pyopenssl = "23.2.0"
+# Зависимости для разработки и тестирования
+black = "^23.0"                         # Форматирование кода
+flake8 = "^6.0"                         # Анализ качества кода
+isort = "^5.12.0"                       # Сортировка импортов
+pre-commit = "^3.0"                     # Хуки перед коммитами
+pytest = "^8.4.0"                       # Тестирование
+onnx = "^1.18.0"                        # Работа с ONNX-моделями
+onnxruntime = "^1.22.0"                 # Повтор (можно удалить дубликат, если не нужно отдельно)
+dvc = { extras = ["gdrive"], version = "^3.60.0" }  # Поддержка Google Drive в DVC
+pydrive2 = "^1.21.3"                    # Альтернатива API GDrive (для аутентификации)
+cryptography = "41.0.7"                # Работа с сертификатами (фиксы для GDrive)
+pyopenssl = "23.2.0"                   # SSL для взаимодействия с GDrive
 
 [build-system]
+# Настройки системы сборки проекта
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

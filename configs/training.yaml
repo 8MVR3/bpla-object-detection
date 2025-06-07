@@ -1,4 +1,3 @@
-# Этот файл должен быть в корне configs/, а не в подпапке
 training:
     epochs: 50
     batch_size: 16

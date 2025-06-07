@@ -16,7 +16,7 @@ repos:
           - id: flake8
 
     - repo: https://github.com/pre-commit/mirrors-prettier
-      rev: v2.7.1 # последняя доступная в mirrors-prettier
+      rev: v2.7.1
       hooks:
           - id: prettier
             files: \.(yaml|yml|md)$

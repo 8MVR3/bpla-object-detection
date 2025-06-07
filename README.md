@@ -1,30 +1,36 @@
 # BPLA Object Detection with Prompting
 
-## 📌 Описание проекта
+## 📌 Project Overview
 
-Проект реализует систему автоматического обнаружения объектов на изображениях и видео с беспилотных летательных аппаратов (БЛА). Мы используем мультимодальный подход, объединяя детектор объектов (YOLOv8) с возможностью адаптации к условиям с помощью автоматической генерации промптов.
-
-Основная цель — обеспечить надёжный MLOps-пайплайн: от подготовки данных до развёртывания модели, с учётом требований к переносимости, воспроизводимости и мониторингу.
+This repository implements an end-to-end object detection pipeline for aerial imagery captured by UAVs (unmanned aerial vehicles), using YOLOv8. The project is structured according to MLOps best practices, supporting full lifecycle management: from data and training to inference and deployment.
 
 ---
 
-## ⚙️ Установка и настройка окружения
+## ⚙️ Environment Setup
 
-### 📁 Клонируйте репозиторий
+### 📥 Clone the Repository
 
 ```bash
 git clone https://github.com/8MVR3/bpla-object-detection.git
 cd bpla-object-detection
 ```
 
-### 🐍 Установите зависимости
+### 📦 Install Dependencies
+
+Using Poetry:
 
 ```bash
 poetry install
 poetry shell
 ```
 
-### ✅ Установите git-хуки
+Or via `pip`:
+
+```bash
+pip install -r requirements.txt
+```
+
+### ✅ Set up Git Hooks
 
 ```bash
 pre-commit install
@@ -33,44 +39,55 @@ pre-commit run --all-files
 
 ---
 
-## 🏋️‍♂️ Обучение модели
+## 🗂️ Dataset Management with DVC
 
-### 🔧 Настройка
+We use [DVC](https://dvc.org/) to track training/validation/test datasets.
 
-Параметры обучения указываются в `configs/train.yaml`, например:
+### 📡 Download Data
 
-```yaml
-epochs: 20
-use_gpu: true
-data:
-    _target_: src.data.DataModule
-    data_dir: data/
-    batch_size: 32
-
-model:
-    _target_: src.models.DetectionModel
-    lr: 0.001
+```bash
+dvc pull
 ```
 
-### 🚀 Запуск обучения
+This will download data from Google Drive via a service account (already configured).
+
+---
+
+## 🏋️ Training
+
+### 📄 Configure Training
+
+Edit `configs/train.yaml` to modify training parameters:
+
+```yaml
+model:
+    weights_path: models/yolov8s.pt
+    input_size: [640, 640]
+data:
+    data_path: data/data.yaml
+training:
+    epochs: 5
+    batch_size: 16
+    device: cuda:0
+    workers: 2
+    imgsz: 640
+    project: runs/train
+    name: exp1
+```
+
+### 🚀 Run Training
 
 ```bash
 python src/train.py
 ```
 
-Hydra автоматически подгрузит конфигурации из `configs/`.
+Training logs, plots, and weights will be saved to `runs/train/exp1/`.
 
 ---
 
-## 🔍 Инференс (ONNX)
+## 🔍 Inference
 
-### 🔧 Параметры:
-
--   `--model_path`: путь до `.onnx` модели
--   `--input_dir`: директория с `.jpg` изображениями
--   `--output_dir`: папка для результатов
-
-### 🚀 Пример запуска:
+### 💻 ONNX Runtime Inference
 
 ```bash
 python src/infer.py \
@@ -79,124 +96,107 @@ python src/infer.py \
   --output_dir=outputs/
 ```
 
-Файлы будут обработаны и сохранены в `outputs/`. Используется `onnxruntime` и `cv2`, без PyTorch.
+### 🌐 Inference Server (FastAPI)
 
----
-
-## 🧠 Экспорт модели
-
-### ➡️ В ONNX
-
-```bash
-python scripts/export_onnx.py --model models/best.pt --output models/model.onnx
-```
-
-### ➡️ В TensorRT (опционально)
-
-```bash
-bash scripts/build_tensorrt.sh
-```
-
----
-
-## 📤 DVC: управление данными
-
-Для работы с данными используется DVC + Google Drive.
-
-### 📥 Скачивание данных
-
-```bash
-dvc pull
-```
-
-### 📤 Загрузка в облако (только для разработчиков)
-
-```bash
-dvc push
-```
-
-> 🔒 Убедитесь, что `GOOGLE_APPLICATION_CREDENTIALS` указывает на `.json` сервисного аккаунта и не попадает в репозиторий.
-
----
-
-## 📊 Логирование и метрики
-
--   Сохраняются графики: `loss`, `mAP`, `precision`, `recall`
--   Фиксируется git commit ID
--   Все графики сохраняются в директорию `plots/`
-
----
-
-## 🗃 Структура проекта
-
-```
-bpla-object-detection/
-├── configs/         # Конфиги Hydra
-├── data/            # Данные (под управлением DVC)
-├── models/          # Сохранённые модели (.pt, .onnx и т.д.)
-├── notebooks/       # Jupyter-ноутбуки (для исследований)
-├── outputs/         # Результаты инференса
-├── plots/           # Визуализация метрик
-├── scripts/         # Bash-скрипты (экспорт, запуск)
-├── src/             # Основной код проекта
-│   ├── data/        # DataModule для PyTorch Lightning
-│   ├── models/      # Архитектура и логика модели
-│   ├── utils/       # Вспомогательные утилиты
-│   ├── train.py     # Тренировка модели
-│   ├── infer.py     # ONNX-инференс
-│   └── serve.py     # FastAPI сервер
-├── tests/           # Юнит-тесты
-├── .dvc/            # DVC конфигурация
-├── .gitignore
-├── pyproject.toml   # Poetry зависимости
-└── README.md
-```
-
----
-
-## 🚀 FastAPI Inference Server
-
-После того как модель обучена и экспортирована в ONNX, можно запустить сервер для инференса.
-
-### 📦 Установка зависимостей
-
-```bash
-poetry install
-```
-
-### 🚀 Запуск сервера
+Run:
 
 ```bash
 poetry run python src/serve.py
 ```
 
-Сервер будет доступен по адресу: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+Then open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to upload an image and get predictions via Swagger UI.
 
-### 📤 Отправка запроса
+---
 
--   Метод: `POST /predict`
--   Формат: `multipart/form-data`
--   Поле: `file` (jpeg изображение)
+## 📦 Model Export
 
-### ✅ Ответ
+### ➡️ Export to ONNX
 
-```json
-{
-  "predictions": [
-    {
-      "bbox": [x, y, w, h],
-      "confidence": 42.8,
-      "class": 48
-    }
-  ]
-}
+```bash
+python scripts/export_onnx.py --model models/yolov8s.pt --output exports/weights/best.onnx
+```
+
+### ⚡ Export to TensorRT
+
+```bash
+python scripts/build_engine.py  # Builds best.engine from best.onnx
 ```
 
 ---
 
-## 👤 Автор
+## 🧪 Tests
 
-Проект выполнен в рамках курса **MLOps, МФТИ (весна 2025)**
-**Автор:** Вячеслав Михолап
+Run all tests:
+
+```bash
+pytest tests/
+```
+
+Includes:
+
+-   `test_utils.py`
+-   `test_export.py`
+-   `test_infer.py`
+-   `test_dataloader.py`
+-   `test_model.py`
+-   `test_cli_infer.py`
+-   `test_api.py`
+
+---
+
+## 📊 Logging & Monitoring
+
+-   Metrics (loss, mAP, precision, recall) are saved in `runs/train/...`
+-   Plots saved to `plots/`
+-   Git commit ID is captured for reproducibility
+
+---
+
+## 🗃️ Project Structure
+
+```
+bpla-object-detection/
+├── configs/          # Hydra YAML configs
+├── data/             # DVC-tracked datasets
+├── models/           # YOLOv8 weights (.pt)
+├── outputs/          # ONNX inference results
+├── plots/            # Metric plots
+├── scripts/          # Export/build scripts
+├── src/              # Source code
+│   ├── train.py
+│   ├── infer.py
+│   ├── serve.py      # FastAPI app
+│   └── utils/
+├── tests/            # Unit tests
+├── .gitignore
+├── dvc.yaml
+├── pyproject.toml    # Poetry config
+└── README.md
+```
+
+---
+
+## ✅ Checkpoints
+
+-   ✅ Pre-commit hooks (black, isort, flake8, prettier)
+-   ✅ Hydra configs for training and inference
+-   ✅ Inference CLI and FastAPI server
+-   ✅ DVC + GDrive integration
+-   ✅ ONNX + TensorRT export
+-   ✅ Full CI workflow via GitHub Actions
+
+---
+
+## 👤 Author
+
+Project for MLOps course @ MIPT (Spring 2025)
+
+**Author:** Vyacheslav Mikholap
 **Email:** [mikholap.vv@phystech.edu](mailto:mikholap.vv@phystech.edu)
 **GitHub:** [8MVR3](https://github.com/8MVR3)
+
+---
+
+## 📎 License
+
+This project is licensed under the MIT License.
