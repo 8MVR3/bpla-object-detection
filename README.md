@@ -214,21 +214,35 @@ python scripts/build_engine.py  # Builds best.engine from best.onnx
 
 ## 🧪 Tests
 
-Before running tests, make sure `pytest` is installed:
+Before running tests, make sure you have `pytest` installed:
 
 ```bash
 pip install pytest
 ```
 
-Then run all tests with:
+Then run all tests:
 
 ```bash
 pytest tests/
 ```
 
-This will execute all unit and integration tests in the `tests/` directory.
+### ⚠️ Note:
 
-Includes test modules:
+One of the tests (`test_api.py`) depends on the FastAPI server running locally at `http://127.0.0.1:8000`.
+
+To avoid `ConnectionRefusedError`, **start the inference server before running tests**:
+
+```bash
+python src/serve.py
+```
+
+Then, in a new terminal:
+
+```bash
+pytest tests/
+```
+
+### Included Test Modules:
 
 * `test_utils.py`
 * `test_export.py`
@@ -236,12 +250,10 @@ Includes test modules:
 * `test_dataloader.py`
 * `test_model.py`
 * `test_cli_infer.py`
-* `test_api.py`
-
-> ❗ Some tests may fail if dependent models, data, or services (e.g., FastAPI server) are not available.
-> Make sure to check logs and validate required setup if needed.
+* `test_api.py` ❗ *(requires FastAPI server)*
 
 ---
+
 
 ## 📊 Logging & Monitoring
 
