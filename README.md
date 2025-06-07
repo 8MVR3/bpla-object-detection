@@ -28,19 +28,35 @@ poetry shell
 
 #### Create and activate virtual environment
 
+```bash
 python -m venv .venv
+```
 
 ##### For Windows:
 
+```bash
 .venv\Scripts\activate
+```
 
 ##### For Linux/macOS:
 
+```bash
 source .venv/bin/activate
+```
 
-#### Then install dependencies
+#### Install core dependencies
 
+```bash
 pip install -r requirements.txt
+```
+
+#### (Optional) Install dev tools if using pre-commit hooks:
+
+```bash
+pip install black isort flake8 pre-commit
+```
+
+> Prettier requires Node.js. If not using Prettier, you can remove its hook from `.pre-commit-config.yaml`.
 
 ### ✅ Set up Git Hooks
 
@@ -51,7 +67,7 @@ pre-commit run --all-files
 
 ---
 
-## 🗂️ Dataset Management with DVC
+## 📂 Dataset Management with DVC
 
 We use [DVC](https://dvc.org/) to track training/validation/test datasets.
 
@@ -122,7 +138,7 @@ Then open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to upload an 
 
 ## 📦 Model Export
 
-### ➡️ Export to ONNX
+### ⬅️ Export to ONNX
 
 ```bash
 python scripts/export_onnx.py --model models/yolov8s.pt --output exports/weights/best.onnx
@@ -164,7 +180,7 @@ Includes:
 
 ---
 
-## 🗃️ Project Structure
+## 📃 Project Structure
 
 ```
 bpla-object-detection/
@@ -209,6 +225,6 @@ Project for MLOps course @ MIPT (Spring 2025)
 
 ---
 
-## 📎 License
+## 📌 License
 
 This project is licensed under the MIT License.
