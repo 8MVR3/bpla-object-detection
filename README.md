@@ -97,6 +97,14 @@ Make sure this path is correct relative to your project directory.
 
 ## 🏋️ Training
 
+> ⚠️ **Required dependency:**
+> If you haven't installed [YOLOv8](https://github.com/ultralytics/ultralytics), run:
+>
+> ```bash
+> pip install ultralytics
+> ```
+
+
 ### 📄 Configure Training
 
 Edit `configs/train.yaml` to modify training parameters:
