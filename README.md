@@ -77,19 +77,7 @@ This will download data from Google Drive via a service account (see below).
 
 ### 🔐 GDrive DVC Authentication
 
-To download data via `dvc pull`, you need a service account key.
-
-📅 **Download the JSON key** from this shared Google Drive folder:
-👉 [Download keys](https://drive.google.com/drive/folders/19BrlHrNiocZAojDM6Hs8gfoPZjVbvD_k?usp=sharing)
-
-Then place the file into the project root, and update `.dvc/config` if needed:
-
-```
-['remote "gdrive_storage"']
-    url = gdrive://1KPNy9iGWudZXNfDNkDGhLXuwY7-v2mqp
-    gdrive_use_service_account = true
-    gdrive_service_account_json_file_path = cleveland-461918-t2-<your-key>.json
-```
+NDA
 
 Make sure this path is correct relative to your project directory.
 
